@@ -1,7 +1,6 @@
 # Assuming you have not changed the general structure of the template no modification is needed in this file.
-from . import commands
+# from . import commands
 from .lib import fusionAddInUtils as futil
-from .lib import workspaceUtils
 import adsk.core, adsk.fusion, adsk.cam, traceback
 from .modules import pypresence 
 import time
@@ -36,7 +35,6 @@ def run(context):
     try:
         global thread
         # This will run the start function in each of your commands as defined in commands/__init__.py
-        commands.start()
         textPalette.writeText("Fusion360-RPC successfully started")
 
         thread = threading.Thread(target=read)
@@ -60,7 +58,6 @@ def stop(context):
         futil.clear_handlers()
 
         # This will run the start function in each of your commands as defined in commands/__init__.py
-        commands.stop()
         RPC.close()
         keep_running = False
         thread.join()
