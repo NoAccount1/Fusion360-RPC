@@ -11,6 +11,7 @@ client_id = '1278096004993912912'
 keep_running = True
 RPC = pypresence.Presence(client_id) 
 RPC.connect()
+start_time = time.time()
 
 app = adsk.core.Application.get()
 ui = app.userInterface
@@ -80,4 +81,5 @@ def update_rpc():
         details=f"Project: {get_project_name()}",  # This will appear as the first line
         large_image="fusion360-logo",  # The key of the large image you uploaded
         large_text="Autodesk Fusion360",  # Text displayed when hovering over the large image
+        start=start_time, # Time of activity start
     )
